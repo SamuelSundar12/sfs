@@ -27,11 +27,22 @@ public class PlaceService {
 			return pldao.getState();
 		}
 	 
-	 public ArrayList<State> getStateBycountryid(String countryid) {
+	 public List<State> getStateBycountryid(String countryid) {
 		 return pldao.getStateBycountryid(countryid);
 	 }
 	 
 	 public ArrayList<City> getCityBystateid(String stateid) {
 		 return pldao.getCityBystateid(stateid);
 	 }
+	 public Country ViewCountrybyid(String countryid) {
+         return pldao.viewCountrybyId(countryid);
+   }
+   public State viewStatebyId(String stateid) {
+         return pldao.viewStatebyId(stateid);
+   }
+   public City viewCitybyId(String cityid) {
+         return pldao.viewCitybyId(cityid);
+   }
+
+
 }

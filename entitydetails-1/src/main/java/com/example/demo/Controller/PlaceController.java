@@ -49,4 +49,17 @@ public class PlaceController {
 		return plserv.getCityBystateid(stateid);
 	}
 
+	@GetMapping("/viewCountrybyid/{countryid}")
+    public Country ViewCountrybyId(@PathVariable(value = "countryid") String countryid) {
+        return plserv.ViewCountrybyid(countryid);
+    }
+    
+    @GetMapping("/viewStatebyid/{stateid}")
+    public State viewStatebyId(@PathVariable(value = "stateid") String stateid) {
+        return plserv.viewStatebyId(stateid);
+    }
+    @GetMapping("/viewCitybyid/{cityid}")
+    public City viewCitybyId(@PathVariable(value = "cityid") String cityid) {
+        return plserv.viewCitybyId(cityid);
+    }
 }

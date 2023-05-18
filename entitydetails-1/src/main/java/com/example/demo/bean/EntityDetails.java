@@ -53,50 +53,50 @@ public class EntityDetails {
   @JoinColumn(name="ED_CONSTITUTION_CODE")
   private Constitution constitution;
 
-  @Column(name = "ED_ENTITY_REFERENCE", length = 20)
-  private String entityReference;
-
-  @Column(name = "ED_START_DATE")
-  private Date startDate;
-
-  @Column(name = "ED_END_DATE")
-  private Date endDate;
-
-  @Column(name = "DATA_UPLOAD_TYPE", length = 1)
-  private String dataUploadType;
-
-  @Column(name = "DELIMITER", length = 1)
-  private String delimiter;
-
-  @Column(name = "ED_SPOKE_CODE")
-  private Integer spokeCode;
-
-  @Column(name = "ED_OUTREACH_CODE")
-  private Integer outreachCode;
+//  @Column(name = "ED_ENTITY_REFERENCE", length = 20)
+//  private String entityReference;
+//
+//  @Column(name = "ED_START_DATE")
+//  private Date startDate;
+//
+//  @Column(name = "ED_END_DATE")
+//  private Date endDate;
+//
+//  @Column(name = "DATA_UPLOAD_TYPE", length = 1)
+//  private String dataUploadType;
+//
+//  @Column(name = "DELIMITER", length = 1)
+//  private String delimiter;
+//
+//  @Column(name = "ED_SPOKE_CODE")
+//  private Integer spokeCode;
+//
+//  @Column(name = "ED_OUTREACH_CODE")
+//  private Integer outreachCode;
 
   @Column(name = "ED_DAS_EMPLOYER", length = 1)
   private String dasEmployer;
 
-  @Column(name = "ED_SUPPLIER_REASON", length = 100)
-  private String supplierReason;
+//  @Column(name = "ED_SUPPLIER_REASON", length = 100)
+//  private String supplierReason;
 
   @Column(name = "ED_ENTITY_LIFE_BLOCK_RECORD_ID")
   private Integer entityLifeBlockRecordId;
 
-  @Column(name = "BUILDER_CATEGORY", length = 10)
-  private String builderCategory;
+//  @Column(name = "BUILDER_CATEGORY", length = 10)
+//  private String builderCategory;
 
-  @Column(name = "APPR_STATUS", length = 1)
-  private String apprStatus;
+//  @Column(name = "APPR_STATUS", length = 1)
+//  private String apprStatus;
+//
+//  @Column(name = "REMARKS", length = 2000)
+//  private String remarks;
+//
+//  @Column(name = "APPROVED_BY", length = 15)
+//  private String approvedBy;
 
-  @Column(name = "REMARKS", length = 2000)
-  private String remarks;
-
-  @Column(name = "APPROVED_BY", length = 15)
-  private String approvedBy;
-
-  @Column(name = "APPROVED_DATE")
-  private Date approvedDate;
+//  @Column(name = "APPROVED_DATE")
+//  private Date approvedDate;
   
   @OneToOne
   @JoinColumn(name="CERSAL_CITY")
@@ -105,11 +105,26 @@ public class EntityDetails {
   @Column(name = "CERSAL_DISTRICT")
   private Integer cersalDistrict;
 
-  @Column(name = "MSME_APPL", length = 1)
-  private String msmeAppl;
-
-  @Column(name = "MOBILE_APP_APPLICABLE", length = 10)
-  private String mobileAppApplicable;
+//  @Column(name = "MSME_APPL", length = 1)
+//  private String msmeAppl;
+//
+//  @Column(name = "MOBILE_APP_APPLICABLE", length = 10)
+//  private String mobileAppApplicable;
+  
+  @Column(name = "COUNTRY")
+  private String country;
+  
+  @Column(name = "ED_PAN")
+  private int pan;
+  
+  @Column(name = "STATE")
+  private String state;
+  
+  @Column(name = "LOCATION")
+  private String location;
+  
+  @Column(name = "PIN_CODE")
+  private int pincode ;
 
 public Long getId() {
 	return id;
@@ -118,8 +133,6 @@ public Long getId() {
 public void setId(Long id) {
 	this.id = id;
 }
-
-
 
 public EntityTable getEntityTable() {
 	return entityTable;
@@ -137,15 +150,6 @@ public void setEntityCode(String entityCode) {
 	this.entityCode = entityCode;
 }
 
-
-//public Integer getTxnId() {
-//	return txnId;
-//}
-//
-//public void setTxnId(Integer txnId) {
-//	this.txnId = txnId;
-//}
-
 public GSTdetails getgSTdetails() {
 	return gSTdetails;
 }
@@ -154,25 +158,16 @@ public void setgSTdetails(GSTdetails gSTdetails) {
 	this.gSTdetails = gSTdetails;
 }
 
-//public String getBranchCode() {
-//	return branchCode;
-//}
-//
-//public void setBranchCode(String branchCode) {
-//	this.branchCode = branchCode;
-//}
-
-
-public String getName() {
-	return name;
-}
-
 public Branch getBranch() {
 	return branch;
 }
 
 public void setBranch(Branch branch) {
 	this.branch = branch;
+}
+
+public String getName() {
+	return name;
 }
 
 public void setName(String name) {
@@ -195,68 +190,12 @@ public void setResidentialCode(Integer residentialCode) {
 	this.residentialCode = residentialCode;
 }
 
-//public Integer getConstitutionCode() {
-//	return constitutionCode;
-//}
-//
-//public void setConstitutionCode(Integer constitutionCode) {
-//	this.constitutionCode = constitutionCode;
-//}
-
-public String getEntityReference() {
-	return entityReference;
+public Constitution getConstitution() {
+	return constitution;
 }
 
-public void setEntityReference(String entityReference) {
-	this.entityReference = entityReference;
-}
-
-public Date getStartDate() {
-	return startDate;
-}
-
-public void setStartDate(Date startDate) {
-	this.startDate = startDate;
-}
-
-public Date getEndDate() {
-	return endDate;
-}
-
-public void setEndDate(Date endDate) {
-	this.endDate = endDate;
-}
-
-public String getDataUploadType() {
-	return dataUploadType;
-}
-
-public void setDataUploadType(String dataUploadType) {
-	this.dataUploadType = dataUploadType;
-}
-
-public String getDelimiter() {
-	return delimiter;
-}
-
-public void setDelimiter(String delimiter) {
-	this.delimiter = delimiter;
-}
-
-public Integer getSpokeCode() {
-	return spokeCode;
-}
-
-public void setSpokeCode(Integer spokeCode) {
-	this.spokeCode = spokeCode;
-}
-
-public Integer getOutreachCode() {
-	return outreachCode;
-}
-
-public void setOutreachCode(Integer outreachCode) {
-	this.outreachCode = outreachCode;
+public void setConstitution(Constitution constitution) {
+	this.constitution = constitution;
 }
 
 public String getDasEmployer() {
@@ -267,73 +206,12 @@ public void setDasEmployer(String dasEmployer) {
 	this.dasEmployer = dasEmployer;
 }
 
-public String getSupplierReason() {
-	return supplierReason;
-}
-
-public void setSupplierReason(String supplierReason) {
-	this.supplierReason = supplierReason;
-}
-
 public Integer getEntityLifeBlockRecordId() {
 	return entityLifeBlockRecordId;
 }
 
 public void setEntityLifeBlockRecordId(Integer entityLifeBlockRecordId) {
 	this.entityLifeBlockRecordId = entityLifeBlockRecordId;
-}
-
-public String getBuilderCategory() {
-	return builderCategory;
-}
-
-public void setBuilderCategory(String builderCategory) {
-	this.builderCategory = builderCategory;
-}
-
-public String getApprStatus() {
-	return apprStatus;
-}
-
-public void setApprStatus(String apprStatus) {
-	this.apprStatus = apprStatus;
-}
-
-public String getRemarks() {
-	return remarks;
-}
-
-public void setRemarks(String remarks) {
-	this.remarks = remarks;
-}
-
-public String getApprovedBy() {
-	return approvedBy;
-}
-
-public void setApprovedBy(String approvedBy) {
-	this.approvedBy = approvedBy;
-}
-
-public Date getApprovedDate() {
-	return approvedDate;
-}
-
-public void setApprovedDate(Date approvedDate) {
-	this.approvedDate = approvedDate;
-}
-
-//public Integer getCersalCity() {
-//	return cersalCity;
-//}
-//
-//public void setCersalCity(Integer cersalCity) {
-//	this.cersalCity = cersalCity;
-//}
-
-
-public Integer getCersalDistrict() {
-	return cersalDistrict;
 }
 
 public City getCity() {
@@ -344,33 +222,55 @@ public void setCity(City city) {
 	this.city = city;
 }
 
+public Integer getCersalDistrict() {
+	return cersalDistrict;
+}
+
 public void setCersalDistrict(Integer cersalDistrict) {
 	this.cersalDistrict = cersalDistrict;
 }
 
-public String getMsmeAppl() {
-	return msmeAppl;
+public String getCountry() {
+	return country;
 }
 
-public void setMsmeAppl(String msmeAppl) {
-	this.msmeAppl = msmeAppl;
+public void setCountry(String country) {
+	this.country = country;
 }
 
-public String getMobileAppApplicable() {
-	return mobileAppApplicable;
+public int getPan() {
+	return pan;
 }
 
-public void setMobileAppApplicable(String mobileAppApplicable) {
-	this.mobileAppApplicable = mobileAppApplicable;
+public void setPan(int pan) {
+	this.pan = pan;
 }
 
-public Constitution getConstitution() {
-	return constitution;
+public String getState() {
+	return state;
 }
 
-public void setConstitution(Constitution constitution) {
-	this.constitution = constitution;
+public void setState(String state) {
+	this.state = state;
 }
 
+public String getLocation() {
+	return location;
+}
+
+public void setLocation(String location) {
+	this.location = location;
+}
+
+public int getPincode() {
+	return pincode;
+}
+
+public void setPincode(int pincode) {
+	this.pincode = pincode;
+}
   
+  
+  
+	
 }

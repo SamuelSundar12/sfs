@@ -1,6 +1,6 @@
 package com.example.demo.Dao;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,46 +37,49 @@ public class PlaceDao {
 		q=session.createQuery("from State");
 		return (ArrayList<State>) q.list();
 	}
-	
-	public Country viewCountrybyId(String countryid) {
-		
-		Country elBean=new Country();
-			session=sessionFactory.openSession();
-			transaction=session.beginTransaction();
-		Query<Country> q2=session.createQuery("from Country where countryid=:countryid");
-		q2.setParameter("countryid", countryid);
-		ArrayList<Country> all=(ArrayList<Country>) q2.getResultList();
-		for( Country e1:all)
-		{
-			elBean=e1;
-		}
-		return elBean;
-		}
 
 	
-	public ArrayList<State> getStateBycountryid(String countryid) {
-	    System.out.println("Under DAO " + countryid);
-	   Country country = viewCountrybyId(countryid);
-	    if (country != null) {
+	public Country viewCountrybyId(String countryid) {
+	    Country country = null;
+	    Session session = null;
+	    try {
 	        session = sessionFactory.openSession();
-	        try {
-	            transaction = session.beginTransaction();
-	            Query<State> query = session.createQuery("FROM State WHERE country.countryid = :countryid");
-	            query.setParameter("countryid", countryid);
-	            ArrayList<State> reservations = (ArrayList<State>) query.getResultList();
-	            transaction.commit();
-	            return reservations;
-	        } catch (Exception e) {
-	            if (transaction != null) {
-	                transaction.rollback();
-	            }
-	           
-	        } finally {
+	        Query<Country> query = session.createQuery("from Country where countryid = :countryid", Country.class);
+	        query.setParameter("countryid", countryid);
+	        country = query.uniqueResult();
+	    } finally {
+	        if (session != null) {
 	            session.close();
+	        }
+	    }
+	    return country;
+	}
+
+
+	
+	public List<State> getStateBycountryid(String countryid) {
+	    System.out.println("Under DAO " + countryid);
+	    Country country = viewCountrybyId(countryid);
+	    if (country != null) {
+	        Session session = null;
+	        Transaction transaction = null;
+	        try {
+	            session = sessionFactory.openSession();
+	            transaction = session.beginTransaction();
+	            Query<State> query = session.createQuery("FROM State WHERE country.countryid = :countryid", State.class);
+	            query.setParameter("countryid", countryid);
+	            List<State> states = query.getResultList();
+	            transaction.commit();
+	            return states;
+	        }  finally {
+	            if (session != null) {
+	                session.close();
+	            }
 	        }
 	    }
 	    return null;
 	}
+
 	
 	
 	
@@ -94,7 +97,20 @@ public State viewStatebyId(String stateid) {
 		}
 		return elBean;
 		}
+public City viewCitybyId(String cityid) {
 	
+	City elBean=new City();
+		session=sessionFactory.openSession();
+		transaction=session.beginTransaction();
+	Query<City> q2=session.createQuery("from City where cityid=:cityid");
+	q2.setParameter("cityid", cityid);
+	ArrayList<City> all=(ArrayList<City>) q2.getResultList();
+	for( City e1:all)
+	{
+		elBean=e1;
+	}
+	return elBean;
+	}	
 	
 
 

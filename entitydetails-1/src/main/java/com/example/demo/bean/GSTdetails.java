@@ -46,7 +46,7 @@ public class GSTdetails {
 	  private int recordId;
 	  
 	  @Column(name="MOBILE_NO")
-	  private int mobileNo;
+	  private long mobileNo;
 	  
 	  @Column(name="EMAIL")
 	  private String email;
@@ -139,11 +139,11 @@ public class GSTdetails {
 		this.recordId = recordId;
 	}
 
-	public int getMobileNo() {
+	public long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(int mobileNo) {
+	public void setMobileNo(long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 

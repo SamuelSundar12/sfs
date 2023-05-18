@@ -21,5 +21,6 @@ public class GSTdetailsController {
 		gstserv.addGSTdetails(gd);
 		return "GSTdetails Added Successfully";	
 	}
+	
 
 }

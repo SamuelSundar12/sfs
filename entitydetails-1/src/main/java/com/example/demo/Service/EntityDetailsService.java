@@ -22,4 +22,12 @@ public String addEntityDetails(EntityDetails entityDetails)
 {
 	return entdtdao.addEntityDetails(entityDetails);
 }
+public boolean modifyEntityDetails(EntityDetails entityDetails)
+{
+	return entdtdao.modifyEntityDetails(entityDetails);
+}
+public EntityDetails viewEntityDetailsById(int ID)
+{
+	return entdtdao.viewEntityDetailsById(ID);
+}
 }
