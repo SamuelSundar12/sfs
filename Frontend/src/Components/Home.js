@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
-import Service from '../Services/Service'
+import Service from "../Services/Service";
 
 function Home() {
   const navigate = useNavigate();
   const [entityTypes, setEntityTypes] = useState([]);
   const [entityType, setEntityType] = useState("");
-  const [entityDescription, setEntityDescription] = useState("")
+  const [entityDescription, setEntityDescription] = useState("");
 
   useEffect(() => {
     // Fetch entity types and descriptions from database
@@ -15,7 +15,7 @@ function Home() {
       const entities = response.data.map((entity) => ({
         value: entity.entityType,
         label: entity.entityType,
-        entityDescription: entity.entityDescription
+        entityDescription: entity.entityDescription,
       }));
       setEntityTypes(entities);
       console.log(entities);
@@ -34,7 +34,7 @@ function Home() {
   const entityOptions = entityTypes.map((entityType) => ({
     value: entityType.value,
     label: entityType.label,
-    entityDescription: entityType.entityDescription
+    entityDescription: entityType.entityDescription,
   }));
 
   const handleEntityInfoSubmit = () => {
@@ -57,7 +57,6 @@ function Home() {
     <div>
       <label>Entity Type</label>
       <select
-      
         options={entityOptions}
         value={entityType}
         onChange={handleEntityTypeChange}
@@ -68,11 +67,19 @@ function Home() {
         value={entityDescription}
         onChange={(e) => setEntityDescription(e.target.value)}
       />
-      <br/>
-      <button type="submit" onClick={handleEntityInfoSubmit}>Entity Info</button>
-      <button type="submit" onClick={handleAddressInfoSubmit}>Address Info </button>
-      <button type="submit" onClick={handleGstDetailsSubmit}>GST Details</button>
-      <button type="submit" onClick={handleAdditionalInfoSubmit}>Entity Additional Information</button>
+      <br />
+      <button type="submit" onClick={handleEntityInfoSubmit}>
+        Entity Info
+      </button>
+      <button type="submit" onClick={handleAddressInfoSubmit}>
+        Address Info{" "}
+      </button>
+      <button type="submit" onClick={handleGstDetailsSubmit}>
+        GST Details
+      </button>
+      <button type="submit" onClick={handleAdditionalInfoSubmit}>
+        Entity Additional Information
+      </button>
     </div>
   );
 }

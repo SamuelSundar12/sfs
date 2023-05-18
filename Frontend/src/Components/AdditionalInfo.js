@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
 function AdditionalInfo(props) {
-  
-  
-
-
   return (
     <div>
       <h2>Entity Additional Information</h2>
@@ -17,26 +13,19 @@ function AdditionalInfo(props) {
           </tr>
         </thead>
         <tbody>
-          
-            <tr>
-              <td>1</td>
-              <td>DAS EMPLOYER</td>
-              <td>
-              <select id="dasEmployer"
-  
-  onChange={props.handlechange}
->
-  <option value="">--SELECT--</option>
-  <option value="Y">Y</option>
-  <option value="N">N</option>
-</select>
-
-              </td>
-            </tr>
-         
+          <tr>
+            <td>1</td>
+            <td>DAS EMPLOYER</td>
+            <td>
+              <select id="dasEmployer" onChange={props.handlechange}>
+                <option value="">--SELECT--</option>
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+              </select>
+            </td>
+          </tr>
         </tbody>
       </table>
-     
     </div>
   );
 }
